@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <link type="text/css" href="Listbox.css" rel="stylesheet" />
+    <link type="text/css" href="CheckBoxList.css" rel="stylesheet" />
+    <link type="text/css" href="Calendar.css" rel="stylesheet" />
+    <link type="text/css" href="Grid.css" rel="stylesheet" />
+
+    <script src="ZenithControlBase.js" type="text/javascript"></script>
+    <script src="ZenithGrid.js" type="text/javascript"></script>
+    <script src="ZenithList.js" type="text/javascript"></script>
+    <script src="ZenithCheckBoxList.js" type="text/javascript"></script>
+    <script src="ZenithCalendar.js" type="text/javascript"></script>
+    <script src="ZenithListBox.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function OnLoad()
+        {
+            testListBox();
+            //testCheckBoxList();
+            //testCalendar();
+            //testGrid();
+        }
+
+        function testListBox()
+        {
+            var lstList = new Zenith.ListBox('baseElement');
+
+            lstList.NumColumns = 2;
+            lstList.ColumnSpace = 15;
+            lstList.PopUpControlId = 'testPopup';
+            lstList.PopUpPosition = 'right';
+            lstList.PopUpDirection = 'down';
+            lstList.OutputElementId = 'output1';
+            lstList.MaximumHeight = 100;
+
+            lstList.addZenithEventListener(Zenith.ZenithEvent.EventType.Selected, function (value, text) { alert(text); });
+            lstList.addZenithEventListener(Zenith.ZenithEvent.EventType.Close, function () { });
+
+            lstList.AddItem(1, "Blue");
+            lstList.AddItem(2, "Yellow");
+            lstList.AddItem(3, "Red");
+            lstList.AddItem(4, "Green");
+            lstList.AddItem(5, "Turqoise");
+            lstList.AddItem(6, "Orange");
+            lstList.AddItem(7, "Black");
+            lstList.AddItem(8, "White");
+            lstList.AddItem(9, "Aqua");
+            lstList.AddItem(10, "Gray");
+            lstList.AddItem(11, "Purple");
+
+            /*var testData = [
+                { "Value": 1, "Text": "Blue" },
+                { "Value": 2, "Text": "Yellow" },
+                { "Value": 3, "Text": "Red" },
+                { "Value": 4, "Text": "Green" },
+                { "Value": 5, "Text": "Turqoise" },
+                { "Value": 6, "Text": "Orange" },
+                { "Value": 7, "Text": "Black" },
+                { "Value": 8, "Text": "White" },
+                { "Value": 9, "Text": "Aqua" },
+                { "Value": 10, "Text": "Gray" },
+                { "Value": 11, "Text": "Purple" }
+            ];
+            lstList.AddJSONData(testData); */
+
+            /*var testData = [[1, 'Blue'],
+                                [2, 'Yellow'],
+                                [3, 'Red'],
+                                [4, 'Green'],
+                                [5, 'Turqoise'],
+                                [6, 'Orange'],
+                                [7, 'Black'],
+                                [8, 'White'],
+                                [9, 'Aqua'],
+                                [10, 'Yellow'],
+                                [11, 'Gray'],
+                                [12, 'Purple']];
+            lstList.AddArrayData(testData); */
+
+            lstList.Build();
+        }
+
+        function testCheckBoxList()
+        {
+            var cbList = new Zenith.CheckBoxList('baseElement');
+
+            cbList.NumColumns = 2;
+            cbList.ColumnSpace = 15;
+            cbList.MaximumHeight = 100;
+            cbList.PopUpControlId = 'testPopup';
+            cbList.PopUpPosition = 'right';
+            cbList.PopUpDirection = 'down';
+            cbList.OutputElementId = 'output1';
+
+            cbList.addZenithEventListener(Zenith.ZenithEvent.EventType.Selected, function (value, text, checked) { alert(text + ' ' + (checked ? 'selected' : 'unselected')); });
+            cbList.addZenithEventListener(Zenith.ZenithEvent.EventType.Close, function () { });
+
+            cbList.AddItem(1, "Blue");
+            cbList.AddItem(2, "Yellow");
+            cbList.AddItem(3, "Red");
+            cbList.AddItem(4, "Green");
+            cbList.AddItem(5, "Turqoise");
+            cbList.AddItem(6, "Orange");
+            cbList.AddItem(7, "Black");
+            cbList.AddItem(8, "White");
+            cbList.AddItem(9, "Aqua");
+            cbList.AddItem(10, "Gray");
+            cbList.AddItem(11, "Purple");
+
+            /*var testData = [
+                { "Value": 1, "Text": "Blue" },
+                { "Value": 2, "Text": "Yellow" },
+                { "Value": 3, "Text": "Red" },
+                { "Value": 4, "Text": "Green" },
+                { "Value": 5, "Text": "Turqoise" },
+                { "Value": 6, "Text": "Orange" },
+                { "Value": 7, "Text": "Black" },
+                { "Value": 8, "Text": "White" },
+                { "Value": 9, "Text": "Aqua" },
+                { "Value": 10, "Text": "Gray" },
+                { "Value": 11, "Text": "Purple" }
+            ];
+            cbList.AddJSONData(testData);
+
+            var testData = [[1, 'Blue'],
+                                [2, 'Yellow'],
+                                [3, 'Red'],
+                                [4, 'Green'],
+                                [5, 'Turqoise'],
+                                [6, 'Orange'],
+                                [7, 'Black'],
+                                [8, 'White'],
+                                [9, 'Aqua'],
+                                [10, 'Yellow'],
+                                [11, 'Gray'],
+                                [12, 'Purple']]; 
+            cbList.AddArrayData(testData);*/
+
+            cbList.Build();
+        }
+
+        function testCalendar()
+        {
+            var calendar = new Zenith.Calendar('baseElement');
+
+            calendar.StartDate = new Date(2012, 11, 01);
+            calendar.PopUpControlId = 'testPopup';
+            calendar.PopUpPosition = 'right';
+            calendar.PopUpDirection = 'down';
+            calendar.OutputElementId = 'output1';
+            calendar.DisplayOutputElementId = 'output2';
+            calendar.DisplayOutputFormat = 1;
+
+            calendar.addZenithEventListener(Zenith.ZenithEvent.EventType.Selected, function (value, text) { alert(text); });
+            calendar.addZenithEventListener(Zenith.ZenithEvent.EventType.Close, function () {  });
+
+            calendar.Build();
+        }
+
+        function testGrid()
+        {
+            // This commented out code is an example of getting a JSON object from a REST service and passing that in as the data source for the Grid.
+            /*jQuery.support.cors = true;
+            $.getJSON("http://localhost/TestService/TestService/Cars", {}, function (data)
+            {
+            myGrid = new Grid('myGrid', data);
+            });*/
+
+            // Use the following JSON object as the data source.
+            var testData = [
+                { "Id": 22, "make": "Honda", "model": "CR-V", "year": "1998" },
+                { "Id": 23, "make": "Toyota", "model": "Sienna", "year": "2005" },
+                { "Id": 24, "make": "Nissan", "model": "Sentra", "year": "2001" },
+                { "Id": 25, "make": "Toyota", "model": "Corolla", "year": "2011" },
+                { "Id": 26, "make": "Ford", "model": "Focus", "year": "2008" },
+                { "Id": 27, "make": "Dodge", "model": "Charger", "year": "2004" },
+                { "Id": 28, "make": "Ford", "model": "Fiesta", "year": "2013" },
+                { "Id": 29, "make": "Toyota", "model": "Camry", "year": "2008" },
+                { "Id": 30, "make": "Dodge", "model": "Durango", "year": "2004"}];
+
+            // Call the constructor.            
+            var myGrid = new Zenith.Grid('baseElement', testData);
+
+            // Now, set the rest of the public properties on the Grid object as necessary before
+            // calling the Build function.
+
+            myGrid.BindFields =
+                [
+                    { "FieldName": "make", "Header": "Make", "Width": 150 },
+                    { "FieldName": "model", "Header": "Model", "Width": 150 },
+                    { "FieldName": "year", "Header": "Year", "Width": 50 }
+                ];
+            myGrid.DataKeyName = 'Id';
+
+            myGrid.PopUpControlId = 'testPopup';
+            myGrid.PopUpPosition = 'right';
+            myGrid.PopUpDirection = 'down';
+
+            myGrid.IsSelectable = true;
+            myGrid.IsSortable = true;
+            myGrid.GroupedByKeyName = 'make';
+            myGrid.GroupExpandImage = true;
+            myGrid.MaximumHeight = 100;
+            myGrid.OutputElementId = 'output1';
+
+            myGrid.addZenithEventListener(Zenith.ZenithEvent.EventType.Selected, function (row, rowValue, rowIndex) { alert('rowValue = ' + rowValue + ' : rowIndex = ' + rowIndex); });
+
+            myGrid.Build();
+
+            myGrid.ParentElement.className = 'gridJS';
+        }
+        
+    </script>
+</head>
+    
+<body onload="OnLoad();">
+    <br />
+
+    <div id="baseElement"></div>
+
+    <br />
+    <br />
+
+    <span id="output1"></span>
+    <span id="output2"></span>
+
+    <h1></h1>
+    <h1></h1>
+ 
+    <input id="testPopup" type="button" value="Test" />
+
+    </body>
+</html>

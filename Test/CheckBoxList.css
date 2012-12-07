@@ -1,0 +1,20 @@
+﻿
+#baseElement td:hover 
+{
+    background-color: aquamarine;
+}
+
+.ZenithCheckBoxLabel_Selected
+{
+	background-color: palevioletred;
+}
+
+.ZenithCheckBoxLabel_Unselected
+{
+	background-color: royalblue;
+}
+
+.ZenithCheckBoxTable
+{
+	background-color: beige;
+}
